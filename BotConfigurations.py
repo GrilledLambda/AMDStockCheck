@@ -12,7 +12,7 @@
                 pip install lxml
                 pip install bs4
 
-    3. Create a discord channel you want you bot to hangout in.
+    3. Create a discord channel you want your bot to hangout in.
 
     4. Create an account at https://discord.com/developers
 
