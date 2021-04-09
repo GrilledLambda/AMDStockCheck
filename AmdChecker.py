@@ -48,13 +48,6 @@ class CheckStock:
         else:
             return False    
 
-    async def runAll(self):
-        while True:
-            status = self.checkAll()
-            if status:
-                channel = client.get_channel(GUILD)
-                await channel.send("@everyone", embed=status)
-
 newBot = CheckStock()
 
 #loops through .txt file and checks stock
