@@ -51,11 +51,11 @@ GUILD = ""
 
 #this is the path of your links.txt file with the AMD links.
 #Leave this default if the file is in the same dir as the script.
-linkFile = "links.txt"
+LINKFILE = "links.txt"
 
 #------------------------OPTIONAL------------------------------------
 
 #This will run the script as normal but it will print off the stock of each item.
 #run this to make sure the bot is gathering information correctly and to see custom error messages.
 
-debug = True
+DEBUG = True
