@@ -4,7 +4,7 @@ from discord.ext.commands import Bot
 from discord.utils import get
 from bs4 import BeautifulSoup
 import lxml
-from BotConfigurations import TOKEN, GUILD, linkFile, refreshDelay, debug
+from BotConfigurations import TOKEN, GUILD, LINKFILE, REFRESHDELAY, DEBUG
 #----------------------------
 
 client = discord.Client() 
@@ -39,7 +39,7 @@ class CheckStock:
     
         embed=discord.Embed(title="**__IN STOCK ALERT__**", color=0xff0000) #an alerting red >:[
         stock = self.checkAval(url, True)
-        if debug:
+        if DEBUG:
             print("stock:", stock)
         elif "Out of stock" not in stock[1]:
             embed.add_field(name=stock[0], value=f"**{stock[1]}**", inline=False)
@@ -53,11 +53,11 @@ newBot = CheckStock()
 #loops through .txt file and checks stock
 def startBot():
     while True:
-        with open(linkFile) as linkReader:
+        with open(LINKFILE) as linkReader:
                 for link in linkReader:
                     if debug:
                         print("current link:", link, "\n Checking Link...")
-                    time.sleep(refreshDelay)
+                    time.sleep(REFRESHDELAY)
                     status = newBot.checkMe(link.replace("\n", ""))
                     if status == True:
                         channel = client.get_channel(GUILD)
