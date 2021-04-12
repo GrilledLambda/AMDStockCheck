@@ -33,7 +33,7 @@
 
 #This is the time (in seconds) the script will wait before sending an HTTP request to AMD's servers.
 #Less time means the bot will be faster but AMD might flag your IP.
-refreshDelay = .5 
+REFRESHDELAY = .5 
 
 #-------------------------TOKEN-------------------------------------
 
