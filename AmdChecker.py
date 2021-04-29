@@ -16,7 +16,7 @@ class CheckStock:
     def checkAval(self, url, title=False):
         
         headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0", "Accept-Encoding":"gzip, deflate", "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "DNT":"1","Connection":"close", "Upgrade-Insecure-Requests":"1"}
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout = 15)#throws error if it doesnt get response within 15 seconds
         soup = BeautifulSoup(response.content, features="lxml")
        
         try:
@@ -58,7 +58,10 @@ def startBot():
                     if debug:
                         print("current link:", link, "\n Checking Link...")
                     time.sleep(REFRESHDELAY)
-                    status = newBot.checkMe(link.replace("\n", ""))
+                    try:
+                        status = newBot.checkMe(link.replace("\n", ""))
+                    else:
+                        status = False
                     if status == True:
                         channel = client.get_channel(GUILD)
                         channel.send("@everyone", embed=status)
