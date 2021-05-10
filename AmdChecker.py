@@ -60,7 +60,7 @@ def startBot():
                     time.sleep(REFRESHDELAY)
                     try:
                         status = newBot.checkMe(link.replace("\n", ""))
-                    else:
+                    except:
                         status = False
                     if status == True:
                         channel = client.get_channel(GUILD)
