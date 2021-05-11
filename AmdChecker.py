@@ -55,7 +55,7 @@ def startBot():
     while True:
         with open(LINKFILE) as linkReader:
                 for link in linkReader:
-                    if debug:
+                    if DEBUG:
                         print("current link:", link, "\n Checking Link...")
                     time.sleep(REFRESHDELAY)
                     try:
